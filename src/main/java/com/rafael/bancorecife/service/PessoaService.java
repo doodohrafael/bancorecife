@@ -23,10 +23,10 @@ public class PessoaService {
 		try {
 			pessoaDao.save(pessoa);
 			notificadorSMS.notificar();
+			return pessoa;
 		} catch (Exception e) {
 			throw new NegocioException("Usuário não foi cadastrado.");
 		}
-		return null;
 	}
 	
 	public Pessoa buscarOuFalhar(Long pessoaId) {
